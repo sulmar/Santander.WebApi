@@ -5,6 +5,14 @@ VisualStudioVersion = 15.0.28307.852
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santander.WebApi.Models", "Santander.WebApi.Models\Santander.WebApi.Models.csproj", "{EAD5EED8-2CA1-4CCA-9362-F9DDA12FAC48}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santander.WebApi.IRepositories", "Santander.WebApi.IRepositories\Santander.WebApi.IRepositories.csproj", "{BF064272-B194-4116-9DF9-59E133CB15FC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santander.WebApi.FakeRepositories", "Santander.WebApi.FakeRepositories\Santander.WebApi.FakeRepositories.csproj", "{73B56962-FF8F-4F5D-BDB6-B93744AAE613}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santander.WebApi.Fakers", "Santander.WebApi.Fakers\Santander.WebApi.Fakers.csproj", "{4EBD1474-E842-486D-9141-614DC3C8B801}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Santander.WebApi.Api", "Santander.WebApi.Api\Santander.WebApi.Api.csproj", "{C7BDA258-0CEE-4A50-BE10-24F3CD61BA07}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +23,22 @@ Global
 		{EAD5EED8-2CA1-4CCA-9362-F9DDA12FAC48}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAD5EED8-2CA1-4CCA-9362-F9DDA12FAC48}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAD5EED8-2CA1-4CCA-9362-F9DDA12FAC48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF064272-B194-4116-9DF9-59E133CB15FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF064272-B194-4116-9DF9-59E133CB15FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF064272-B194-4116-9DF9-59E133CB15FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF064272-B194-4116-9DF9-59E133CB15FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{73B56962-FF8F-4F5D-BDB6-B93744AAE613}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{73B56962-FF8F-4F5D-BDB6-B93744AAE613}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{73B56962-FF8F-4F5D-BDB6-B93744AAE613}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{73B56962-FF8F-4F5D-BDB6-B93744AAE613}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4EBD1474-E842-486D-9141-614DC3C8B801}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4EBD1474-E842-486D-9141-614DC3C8B801}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4EBD1474-E842-486D-9141-614DC3C8B801}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4EBD1474-E842-486D-9141-614DC3C8B801}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C7BDA258-0CEE-4A50-BE10-24F3CD61BA07}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C7BDA258-0CEE-4A50-BE10-24F3CD61BA07}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C7BDA258-0CEE-4A50-BE10-24F3CD61BA07}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C7BDA258-0CEE-4A50-BE10-24F3CD61BA07}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

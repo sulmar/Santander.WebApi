@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{EAD5EED8-2CA1-4CCA-9362-F9DDA12FAC48}</ProjectGuid>
+    <ProjectGuid>{BF064272-B194-4116-9DF9-59E133CB15FC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Santander.WebApi.Models</RootNamespace>
-    <AssemblyName>Santander.WebApi.Models</AssemblyName>
+    <RootNamespace>Santander.WebApi.IRepositories</RootNamespace>
+    <AssemblyName>Santander.WebApi.IRepositories</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,10 +41,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseEntity.cs" />
-    <Compile Include="Customer.cs" />
-    <Compile Include="Product.cs" />
+    <Compile Include="ICustomerRepository.cs" />
+    <Compile Include="IEntityRepository.cs" />
+    <Compile Include="IProductRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Santander.WebApi.Models\Santander.WebApi.Models.csproj">
+      <Project>{EAD5EED8-2CA1-4CCA-9362-F9DDA12FAC48}</Project>
+      <Name>Santander.WebApi.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
