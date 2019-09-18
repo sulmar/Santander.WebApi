@@ -1,4 +1,5 @@
 ﻿using Santander.WebApi.FakeRepositories;
+using Santander.WebApi.Fakers;
 using Santander.WebApi.IRepositories;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace Santander.WebApi.Api.Controllers
         private readonly ICustomerRepository customerRepository;
 
         public CustomersController()
-            : this(new FakeCustomerRepository())
+            : this(new FakeCustomerRepository(new CustomerFaker()))
         {
 
         }

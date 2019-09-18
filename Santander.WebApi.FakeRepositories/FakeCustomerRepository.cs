@@ -8,16 +8,13 @@ using System.Threading.Tasks;
 
 namespace Santander.WebApi.FakeRepositories
 {
-    public class FakeProductRepository : FakeEntityRepository<Product>, IProductRepository
-    {
-        public ICollection<Product> GetByColor(string color)
-        {
-            return entities.Where(e => e.Color == color).ToList();
-        }
-    }
 
     public class FakeCustomerRepository : FakeEntityRepository<Customer>, ICustomerRepository
     {
+        public FakeCustomerRepository(Bogus.Faker<Customer> faker) : base(faker)
+        {
+        }
+
         private IQueryable<Customer> ActiveCustomers
         {
             get

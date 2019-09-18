@@ -43,6 +43,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Bogus, Version=28.2.1.0, Culture=neutral, PublicKeyToken=fa1bb3f3f218129a" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Net.Http.Formatting, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -86,6 +87,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CustomersController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -108,6 +110,10 @@
     <ProjectReference Include="..\Santander.WebApi.FakeRepositories\Santander.WebApi.FakeRepositories.csproj">
       <Project>{73b56962-ff8f-4f5d-bdb6-b93744aae613}</Project>
       <Name>Santander.WebApi.FakeRepositories</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Santander.WebApi.Fakers\Santander.WebApi.Fakers.csproj">
+      <Project>{4EBD1474-E842-486D-9141-614DC3C8B801}</Project>
+      <Name>Santander.WebApi.Fakers</Name>
     </ProjectReference>
     <ProjectReference Include="..\Santander.WebApi.IRepositories\Santander.WebApi.IRepositories.csproj">
       <Project>{BF064272-B194-4116-9DF9-59E133CB15FC}</Project>

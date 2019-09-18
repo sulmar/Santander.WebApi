@@ -1,48 +1,20 @@
 ﻿using Bogus;
 using Santander.WebApi.IRepositories;
 using Santander.WebApi.Models;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace Santander.WebApi.FakeRepositories
 {
-    public class FakeEntityRepository<TEntity> : IEntityRepository<TEntity>
-        where TEntity : BaseEntity
+    public class FakeProductRepository : FakeEntityRepository<Product>, IProductRepository
     {
-        protected readonly ICollection<TEntity> entities;
-        private Faker<TEntity> entityFaker;
-
-        public FakeEntityRepository(Faker<TEntity> faker)
+        public FakeProductRepository(Faker<Product> faker) : base(faker)
         {
-            this.entityFaker = faker;
-
-            entities = entityFaker.Generate(100);
         }
 
-        public virtual void Add(TEntity entity)
+        public ICollection<Product> GetByColor(string color)
         {
-            entities.Add(entity);
-        }
-
-        public virtual ICollection<TEntity> Get()
-        {
-            return entities;
-        }
-
-        public virtual TEntity Get(int id)
-        {
-            return entities.SingleOrDefault(e => e.Id == id);
-        }
-
-        public virtual void Remove(int id)
-        {
-            entities.Remove(Get(id));
-        }
-
-        public virtual void Update(TEntity entity)
-        {
-            throw new NotImplementedException();
+            return entities.Where(e => e.Color == color).ToList();
         }
     }
     
