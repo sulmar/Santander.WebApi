@@ -1,6 +1,7 @@
 ﻿using Santander.WebApi.Fakers;
 using Santander.WebApi.IRepositories;
 using Santander.WebApi.Models;
+using Santander.WebApi.Models.SearchCriterias;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,7 +12,7 @@ namespace Santander.WebApi.FakeRepositories
 
     public class FakeCustomerRepository : FakeEntityRepository<Customer>, ICustomerRepository
     {
-        public FakeCustomerRepository(Bogus.Faker<Customer> faker) : base(faker)
+        public FakeCustomerRepository(CustomerFaker faker) : base(faker)
         {
         }
 
@@ -36,6 +37,20 @@ namespace Santander.WebApi.FakeRepositories
         public Customer Get(string username)
         {
             return entities.SingleOrDefault(e => e.UserName == username);
+        }
+
+        public ICollection<Customer> Get(CustomerSearchCriteria criteria)
+        {
+            IQueryable<Customer> results = ActiveCustomers;
+
+            if (!string.IsNullOrEmpty(criteria.City))
+                results = results.Where(c => c.City == criteria.City);
+
+            if (!string.IsNullOrEmpty(criteria.Street))
+                results = results.Where(c => c.Street == criteria.Street);
+
+            return results.ToList();
+
         }
 
         public override void Remove(int id)

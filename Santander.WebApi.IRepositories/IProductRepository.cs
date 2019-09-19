@@ -7,5 +7,6 @@ namespace Santander.WebApi.IRepositories
     public interface IProductRepository : IEntityRepository<Product>
     {
         ICollection<Product> GetByColor(string color);
+        Product Get(string name);
     }
 }

@@ -15,5 +15,8 @@ namespace Santander.WebApi.Models
         public string UserName { get; set; }
         public bool IsRemoved { get; set; }
         public string Email { get; set; }
+        public string City { get; set; }
+        public string Street { get; set; }
+
     }
 }

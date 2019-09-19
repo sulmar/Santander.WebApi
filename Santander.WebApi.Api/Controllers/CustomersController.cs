@@ -1,6 +1,8 @@
 ﻿using Santander.WebApi.FakeRepositories;
 using Santander.WebApi.Fakers;
 using Santander.WebApi.IRepositories;
+using Santander.WebApi.Models;
+using Santander.WebApi.Models.SearchCriterias;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,11 +20,11 @@ namespace Santander.WebApi.Api.Controllers
     {
         private readonly ICustomerRepository customerRepository;
 
-        public CustomersController()
-            : this(new FakeCustomerRepository(new CustomerFaker()))
-        {
+        //public CustomersController()
+        //    : this(new FakeCustomerRepository(new CustomerFaker()))
+        //{
 
-        }
+        //}
 
         public CustomersController(ICustomerRepository customerRepository)
         {
@@ -30,9 +32,14 @@ namespace Santander.WebApi.Api.Controllers
         }
 
         [Route()]
-        public IHttpActionResult Get()
+        public IHttpActionResult Get([FromUri] CustomerSearchCriteria criteria)
         {
-            var customers = customerRepository.Get();
+            ICollection<Customer> customers;
+
+            if (criteria != null)
+                customers = customerRepository.Get(criteria);
+            else
+                customers = customerRepository.Get();
 
             return Ok(customers);
 

@@ -1,4 +1,5 @@
 ﻿using Bogus;
+using Santander.WebApi.Fakers;
 using Santander.WebApi.IRepositories;
 using Santander.WebApi.Models;
 using System.Collections.Generic;
@@ -8,8 +9,13 @@ namespace Santander.WebApi.FakeRepositories
 {
     public class FakeProductRepository : FakeEntityRepository<Product>, IProductRepository
     {
-        public FakeProductRepository(Faker<Product> faker) : base(faker)
+        public FakeProductRepository(ProductFaker faker) : base(faker)
         {
+        }
+
+        public Product Get(string name)
+        {
+            return entities.SingleOrDefault(p => p.Name == name);
         }
 
         public ICollection<Product> GetByColor(string color)
