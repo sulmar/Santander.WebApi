@@ -4,9 +4,10 @@ Przykłady ze szkolenia WebApi 2
 ## Problem kropki
 ~~~ xml
 
-<system.webServer>
+<modules>
+      <remove name="UrlRoutingModule-4.0" />
+      <add name="UrlRoutingModule-4.0" type="System.Web.Routing.UrlRoutingModule" preCondition="" />
+    </modules>
 
-  <modules runAllManagedModulesForAllRequests="true" />
-  
-  </system.webServer>
+
  ~~~
