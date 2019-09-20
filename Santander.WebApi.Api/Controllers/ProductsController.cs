@@ -11,6 +11,7 @@ using System.Web.Http;
 namespace Santander.WebApi.Api.Controllers
 {
     [RoutePrefix("api/products")]
+    [Authorize]
     public class ProductsController :  ApiController
     {
         private readonly IProductRepository productRepository;

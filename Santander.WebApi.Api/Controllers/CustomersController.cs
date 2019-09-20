@@ -5,8 +5,10 @@ using Santander.WebApi.Models;
 using Santander.WebApi.Models.SearchCriterias;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Net.Http;
+using System.Security.Claims;
 using System.Web;
 using System.Web.Http;
 
@@ -15,6 +17,7 @@ namespace Santander.WebApi.Api.Controllers
 
     // Install-Package Microsoft.AspNet.WebApi
 
+    [Authorize(Roles = "Administrator,Developer")]
     [RoutePrefix("api/customers")]
     public class CustomersController : ApiController
     {
@@ -34,6 +37,27 @@ namespace Santander.WebApi.Api.Controllers
         [Route()]
         public IHttpActionResult Get([FromUri] CustomerSearchCriteria criteria)
         {
+
+            if (!this.User.Identity.IsAuthenticated)
+            {
+                return Unauthorized();
+            }
+
+            if (this.User.IsInRole("Administrator"))
+            {
+
+            }
+
+            var claim =  ((ClaimsIdentity)this.User.Identity).FindFirst(ClaimTypes.Email);
+
+            if (claim != null)
+            {
+               string email = claim.Value;
+
+                // TODO: send email
+                Trace.WriteLine(String.Format("Sending email to {0}", email));
+            }
+
             ICollection<Customer> customers;
 
             if (criteria != null)

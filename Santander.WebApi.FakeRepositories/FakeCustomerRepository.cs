@@ -2,9 +2,12 @@
 using Santander.WebApi.IRepositories;
 using Santander.WebApi.Models;
 using Santander.WebApi.Models.SearchCriterias;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Santander.WebApi.FakeRepositories
@@ -14,14 +17,29 @@ namespace Santander.WebApi.FakeRepositories
     {
         public FakeCustomerRepository(CustomerFaker faker) : base(faker)
         {
+
         }
 
         private IQueryable<Customer> ActiveCustomers
         {
             get
             {
-                return entities.Where(c => !c.IsRemoved).AsQueryable();
+                if (!Thread.CurrentPrincipal.IsInRole("Administrator"))
+                {
+                    return entities.Where(c => !c.IsRemoved).AsQueryable();
+                  
+                }
+                else
+                {
+                    return entities.AsQueryable();
+
+                }
             }
+        }
+
+        public Customer Authorize(string username, string hashpassword)
+        {
+            return ActiveCustomers.SingleOrDefault(c => c.UserName == username && c.HashPassword == hashpassword);
         }
 
         public override ICollection<Customer> Get()

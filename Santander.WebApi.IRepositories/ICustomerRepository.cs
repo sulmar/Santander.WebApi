@@ -16,5 +16,6 @@ namespace Santander.WebApi.IRepositories
         // ICollection<Customer> Get(string city, string street);
 
         ICollection<Customer> Get(CustomerSearchCriteria criteria);
+        Customer Authorize(string username, string hashpassword);
     }
 }

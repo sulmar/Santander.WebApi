@@ -36,6 +36,7 @@ namespace Santander.WebApi.Fakers
             RuleFor(p => p.IsRemoved, f => f.Random.Bool(0.3f));
             // Ignore(p => p.UserName);
             RuleFor(p => p.UserName, f => f.Person.UserName);
+            RuleFor(p => p.HashPassword, f => "12345");
             RuleFor(p => p.Email, (f, c) => String.Format("{0}.{1}@santander.pl", c.FirstName, c.LastName));
             RuleFor(p => p.City, f => f.Address.City());
             RuleFor(p => p.Street, f => f.Address.StreetName());
